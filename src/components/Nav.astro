@@ -6,9 +6,9 @@ import ThemeToggle from './ThemeToggle.astro';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Work', href: '/work/' },
-	{ label: 'About', href: '/about/' },
+	{ label: 'Home', href: `${import.meta.env.BASE_URL}` },
+	{ label: 'Work', href: `${import.meta.env.BASE_URL}work` },
+	{ label: 'About', href: `${import.meta.env.BASE_URL}about` },
 ];
 
 /** Test if a link is pointing to the current page. */
