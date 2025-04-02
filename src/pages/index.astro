@@ -3,11 +3,12 @@ import { getCollection } from 'astro:content';
 
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactSocial from '../components/ContactSocial.astro';
 
 // Component Imports
 import CallToAction from '../components/CallToAction.astro';
 import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
+import HeroHome from '../components/HeroHome.astro';
 // import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
@@ -31,22 +32,25 @@ const projects = (await getCollection('work'))
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero
+				<HeroHome
 					title="Davide Sigillo"
 					tagline="Di giorno lavoro come ingegnere gestionale, ma nel tempo libero mi immergo nel mondo della creatività digitale. "
 					align="start"
 				>
+					<small class="text-gray-300">
+						Pubblico principalmente su <a href="https://soundcloud.com/sigillodav">SoundCloud</a> le mie produzioni originali.
+					</small>
 					<div class="roles">
 						<Pill><Icon name="palette" size="1.33em" /> Creative Technologist</Pill>
 						<Pill><Icon name="music" size="1.33em" /> Visual & Sound Designer</Pill>
 					</div>
-				</Hero>
+				</HeroHome>
 
 				<img
-					alt="Davide Sigillo smiling in a red plaid shirt and tortoise shell glasses"
+					alt="davide-sigillo"
 					width="480"
 					height="620"
-					src="./assets/portrait.jpg"
+					src=`${import.meta.env.BASE_URL}assets/portrait.jpg`
 				/>
 			</header>
 
@@ -56,8 +60,10 @@ const projects = (await getCollection('work'))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3>Seleziona progetti</h3>
+					<p>
+						Dai uno sguardo ad alcuni dei miei progetti più recenti.
+					</p>
 				</header>
 
 				<div class="gallery">
@@ -73,36 +79,13 @@ const projects = (await getCollection('work'))
 				</div>
 
 				<div class="cta">
-					<CallToAction href="/work/">
-						View All
-						<!-- <Icon icon="arrow-right" size="1.2em" /> -->
+					<CallToAction href=`${import.meta.env.BASE_URL}work`>
+						Guarda tutti
 					</CallToAction>
 				</div>
 			</section>
 
-			<!-- <section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
-					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
-					</p>
-				</header>
-
-				<div class="gallery">
-					<Grid variant="small">
-						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
-								<li class="mention-card">
-									<p>{brand}</p>
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-			</section> -->
 		</main>
-
 		<ContactCTA />
 	</div>
 </BaseLayout>
@@ -118,15 +101,16 @@ const projects = (await getCollection('work'))
 	.roles {
 		display: flex;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		gap: 1rem;
-
 	}
 
 	.hero img {
 		aspect-ratio: 5 / 4;
 		object-fit: cover;
 		object-position: top;
-		border-radius: 1.5rem;
+		border-radius: 8px;
 		box-shadow: var(--shadow-md);
 	}
 
@@ -141,12 +125,14 @@ const projects = (await getCollection('work'))
 		.roles {
 			margin-top: 0.5rem;
 			display: flex;
+			flex-direction: flex;
+			justify-content: end;
 			gap: 0.5rem;
 		}
 
 		.hero img {
 			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
+			border-radius: 8px;
 			object-fit: cover;
 		}
 	}
@@ -174,7 +160,7 @@ const projects = (await getCollection('work'))
 		top: 0;
 		transform: translateY(-75%) translateX(-50%);
 		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
+			/* url('/assets/backgrounds/noise.png') top center/220px repeat, */
 			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
 			var(--gray-999);
 		background-blend-mode: overlay, normal, normal, normal;
@@ -245,6 +231,10 @@ const projects = (await getCollection('work'))
 		color: var(--gray-300);
 		background: var(--gradient-subtle);
 		box-shadow: var(--shadow-sm);
+	}
+	social {
+		display: flex;
+		gap: 0.5rem;
 	}
 
 	@media (min-width: 50em) {

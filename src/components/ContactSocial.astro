@@ -1,0 +1,88 @@
+---
+import { Icon } from 'astro-icon/components'
+
+---
+
+<div class="socials">
+	<a href="https://soundcloud.com/sigillodav" class="social">
+		<span class="sr-only">SoundCloud</span>
+		<Icon name="soundcloud" size={40} />
+	</a>
+    <a href="https://open.spotify.com/intl-it/artist/3CX3RzsSvv8mX7pCmCrOnN?si=3Kp8T25KSOSwv-n3OGukIw" class="social">
+        <span class="sr-only">Spotify</span>
+        <Icon name="spotify" size={40} />
+    </a>
+    <!-- <a href="" class="social">
+        <span class="sr-only">YouTube</span>
+        <Icon name="youtube" size={40} />
+    </a> -->
+    <a href="https://www.instagram.com/sigillodav" class="social">
+        <span class="sr-only">Instagram</span>
+        <Icon name="instagram" size={40}/>
+    </a>
+</div>
+
+<style>
+    .socials {
+		margin-top: 6px;
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2.5rem;
+	}
+
+	.social {
+		display: flex;
+		padding: var(--icon-padding);
+		text-decoration: none;
+		/* color: var(--accent-dark);
+		transition: color var(--theme-transition); */
+	}
+
+	.social:hover,
+	.social:focus {
+		/* color: var(--accent-text-over); */
+	}
+
+	@media (min-width: 50em) {
+		.link {
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			transition:
+				color var(--theme-transition),
+				background-color var(--theme-transition);
+		}
+
+		.link:hover,
+		.link:focus {
+			color: var(--gray-100);
+			background-color: var(--accent-subtle-overlay);
+		}
+
+		.link[aria-current='page'] {
+			color: var(--accent-text-over);
+			background-color: var(--accent-regular);
+		}
+
+		.socials {
+			display: flex;
+            flex-direction: row;
+			justify-content: center;
+			gap: 2.5rem;
+		}
+	}
+
+	@media (min-width: 60em) {
+		.socials {
+			display: flex;
+            flex-direction: row;
+			justify-content: start;
+			gap: 2.5rem;
+		}
+	}
+	@media (forced-colors: active) {
+		.link[aria-current='page'] {
+			color: SelectedItem;
+		}
+	}
+</style>

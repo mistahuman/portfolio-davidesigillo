@@ -1,13 +1,17 @@
 ---
 import CallToAction from './CallToAction.astro';
-import Icon from './Icon.astro';
+import ContactSocial from './ContactSocial.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <aside>
-	<h2>Interested in working together?</h2>
-	<CallToAction href="mailto:me@example.com">
-		Send Me a Message
-		<Icon icon="paper-plane-tilt" size="1.2em" />
+	<h2>I miei contatti</h2>
+	<div class="stack gap-5">
+		<ContactSocial />
+	</div>
+	<CallToAction href="mailto:sigillodav@gmail.com">
+		Contattami
+		<Icon name="mail" size="1.0em" />
 	</CallToAction>
 </aside>
 

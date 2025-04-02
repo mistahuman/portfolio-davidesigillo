@@ -1,28 +1,32 @@
 ---
-// import Icon from './Icon.astro';
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
-import ThemeToggle from './ThemeToggle.astro';
+import ThemeToggle from "./ThemeToggle.astro";
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Work', href: '/work/' },
-	{ label: 'About', href: '/about/' },
+	{ label: "Home", href: `${import.meta.env.BASE_URL}` },
+	{ label: "Progetti", href: `${import.meta.env.BASE_URL}work` },
+	{ label: "Bio", href: `${import.meta.env.BASE_URL}about` },
 ];
 
 /** Test if a link is pointing to the current page. */
 const isCurrentPage = (href: string) => {
-	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
-	if (pathname.at(0) !== '/') pathname = '/' + pathname;
-	if (pathname.at(-1) !== '/') pathname += '/';
-	return pathname === href || (href !== '/' && pathname.startsWith(href));
+	let pathname = Astro.url.pathname;
+
+	if (pathname.at(0) !== "/") pathname = "/" + pathname;
+	// if (pathname.at(-1) !== '/') pathname += '/';
+	// console.log(href, pathname, pathname === href, (href !== `${import.meta.env.BASE_URL}` && pathname.startsWith(href)));
+	return (
+		pathname === href ||
+		(href !== `${import.meta.env.BASE_URL}` && pathname.startsWith(href))
+	);
 };
 ---
 
 <nav>
 	<div class="menu-header">
-		<a href="/" class="site-title">
+		<a href=`${import.meta.env.BASE_URL}` class="site-title">
 			<!-- <Icon icon="heart" color="var(--accent-regular)" size="1.6em" gradient /> -->
 			Davide Sigillo
 		</a>
@@ -31,7 +35,6 @@ const isCurrentPage = (href: string) => {
 				<button class="menu-button" aria-expanded="false">
 					<span class="sr-only">Menu</span>
 					<Icon name="menu" />
-
 				</button>
 			</template>
 		</menu-button>
@@ -41,7 +44,11 @@ const isCurrentPage = (href: string) => {
 			{
 				textLinks.map(({ label, href }) => (
 					<li>
-						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
+						<a
+							aria-current={isCurrentPage(href) ? "page" : null}
+							class="link"
+							href={href}
+						>
 							{label}
 						</a>
 					</li>
@@ -50,22 +57,25 @@ const isCurrentPage = (href: string) => {
 		</ul>
 		<div class="menu-footer">
 			<div class="socials">
-					<a href="" class="social">
-						<span class="sr-only">Spotify</span>
-						<Icon name="spotify" />
-					</a>
-					<a href="" class="social">
-						<span class="sr-only">YouTube</span>
-						<Icon name="youtube" />
-					</a>
-					<a href="" class="social">
-						<span class="sr-only">SoundCloud</span>
-						<Icon name="soundcloud" />
-					</a>
-					<a href="" class="social">
-						<span class="sr-only">Instagram</span>
-						<Icon name="instagram" />
-					</a>
+				<a href="https://soundcloud.com/sigillodav" class="social">
+					<span class="sr-only">SoundCloud</span>
+					<Icon name="soundcloud" />
+				</a>
+				<a
+					href="https://open.spotify.com/intl-it/artist/3CX3RzsSvv8mX7pCmCrOnN?si=3Kp8T25KSOSwv-n3OGukIw"
+					class="social"
+				>
+					<span class="sr-only">Spotify</span>
+					<Icon name="spotify" />
+				</a>
+				<!-- <a href="" class="social">
+					<span class="sr-only">YouTube</span>
+					<Icon name="youtube" />
+				</a> -->
+				<a href="https://www.instagram.com/sigillodav" class="social">
+					<span class="sr-only">Instagram</span>
+					<Icon name="instagram" />
+				</a>
 			</div>
 
 			<div class="theme-toggle">
@@ -81,35 +91,39 @@ const isCurrentPage = (href: string) => {
 			super();
 
 			// Inject menu toggle button when JS runs.
-			this.appendChild(this.querySelector('template')!.content.cloneNode(true));
-			const btn = this.querySelector('button')!;
+			this.appendChild(
+				this.querySelector("template")!.content.cloneNode(true),
+			);
+			const btn = this.querySelector("button")!;
 
 			// Hide menu (shown by default to support no-JS browsers).
-			const menu = document.getElementById('menu-content')!;
+			const menu = document.getElementById("menu-content")!;
 			menu.hidden = true;
 			// Add "menu-content" class in JS to avoid covering content in non-JS browsers.
-			menu.classList.add('menu-content');
+			menu.classList.add("menu-content");
 
 			/** Set whether the menu is currently expanded or collapsed. */
 			const setExpanded = (expand: boolean) => {
-				btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+				btn.setAttribute("aria-expanded", expand ? "true" : "false");
 				menu.hidden = !expand;
 			};
 
 			// Toggle menu visibility when the menu button is clicked.
-			btn.addEventListener('click', () => setExpanded(menu.hidden));
+			btn.addEventListener("click", () => setExpanded(menu.hidden));
 
 			// Hide menu button for large screens.
-			const handleViewports = (e: MediaQueryList | MediaQueryListEvent) => {
+			const handleViewports = (
+				e: MediaQueryList | MediaQueryListEvent,
+			) => {
 				setExpanded(e.matches);
 				btn.hidden = e.matches;
 			};
-			const mediaQueries = window.matchMedia('(min-width: 50em)');
+			const mediaQueries = window.matchMedia("(min-width: 50em)");
 			handleViewports(mediaQueries);
-			mediaQueries.addEventListener('change', handleViewports);
+			mediaQueries.addEventListener("change", handleViewports);
 		}
 	}
-	customElements.define('menu-button', MenuButton);
+	customElements.define("menu-button", MenuButton);
 </script>
 
 <style>
@@ -141,7 +155,7 @@ const isCurrentPage = (href: string) => {
 		position: relative;
 		display: flex;
 		border: 0;
-		border-radius: 999rem;
+		border-radius: 8px;
 		padding: 0.5rem;
 		font-size: 1.5rem;
 		color: var(--gray-300);
@@ -149,10 +163,9 @@ const isCurrentPage = (href: string) => {
 		box-shadow: var(--shadow-md);
 	}
 
-	.menu-button[aria-expanded='true'] {
+	.menu-button[aria-expanded="true"] {
 		color: var(--gray-0);
-		background:
-			linear-gradient(180deg, var(--gray-600), transparent),
+		background: linear-gradient(180deg, var(--gray-600), transparent),
 			radial-gradient(var(--gray-900), var(--gray-800) 150%);
 	}
 
@@ -163,9 +176,9 @@ const isCurrentPage = (href: string) => {
 	.menu-button::before {
 		position: absolute;
 		inset: -1px;
-		content: '';
+		content: "";
 		background: var(--gradient-stroke);
-		border-radius: 999rem;
+		border-radius: 8px;
 		z-index: -1;
 	}
 
@@ -262,7 +275,7 @@ const isCurrentPage = (href: string) => {
 			position: relative;
 			flex-direction: row;
 			font-size: var(--text-sm);
-			border-radius: 999rem;
+			border-radius: 8px;
 			border: 0;
 			padding: 0.5rem 0.5625rem;
 			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
@@ -272,15 +285,15 @@ const isCurrentPage = (href: string) => {
 		.nav-items::before {
 			position: absolute;
 			inset: -1px;
-			content: '';
+			content: "";
 			background: var(--gradient-stroke);
-			border-radius: 999rem;
+			border-radius: 8px;
 			z-index: -1;
 		}
 
 		.link {
 			padding: 0.5rem 1rem;
-			border-radius: 999rem;
+			border-radius: 8px;
 			transition:
 				color var(--theme-transition),
 				background-color var(--theme-transition);
@@ -292,7 +305,7 @@ const isCurrentPage = (href: string) => {
 			background-color: var(--accent-subtle-overlay);
 		}
 
-		.link[aria-current='page'] {
+		.link[aria-current="page"] {
 			color: var(--accent-text-over);
 			background-color: var(--accent-regular);
 		}
@@ -320,7 +333,7 @@ const isCurrentPage = (href: string) => {
 		}
 	}
 	@media (forced-colors: active) {
-		.link[aria-current='page'] {
+		.link[aria-current="page"] {
 			color: SelectedItem;
 		}
 	}
