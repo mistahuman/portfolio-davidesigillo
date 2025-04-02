@@ -13,7 +13,9 @@ const textLinks: { label: string; href: string }[] = [
 
 /** Test if a link is pointing to the current page. */
 const isCurrentPage = (href: string) => {
-	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '');
+	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '/');
+	// console.log(href, pathname);
+	// console.log(Astro.url.pathname, import.meta.env.BASE_URL, pathname);
 	if (pathname.at(0) !== '/') pathname = '/' + pathname;
 	if (pathname.at(-1) !== '/') pathname += '/';
 	return pathname === href || (href !== '/' && pathname.startsWith(href));
@@ -43,7 +45,9 @@ const isCurrentPage = (href: string) => {
 					<li>
 						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
 							{label}
+							{href}
 						</a>
+						{isCurrentPage(href)}
 					</li>
 				))
 			}
