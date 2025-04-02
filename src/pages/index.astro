@@ -54,7 +54,7 @@ const projects = (await getCollection('work'))
 		</div>
 
 		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class="section with-background with-cta">
+			<section class="section with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
 					<h3>Selected Work</h3>
 					<p>Take a look below at some of my featured work for clients from the past few years.</p>
@@ -119,6 +119,7 @@ const projects = (await getCollection('work'))
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		max-width: 300px; /* Imposta la larghezza massima */
 
 	}
 

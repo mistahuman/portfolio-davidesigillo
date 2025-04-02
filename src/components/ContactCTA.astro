@@ -1,13 +1,14 @@
 ---
 import CallToAction from './CallToAction.astro';
-import Icon from './Icon.astro';
+// import Icon from './Icon.astro';
+import { Icon } from 'astro-icon/components';
 ---
 
 <aside>
 	<h2>Interested in working together?</h2>
 	<CallToAction href="mailto:me@example.com">
 		Send Me a Message
-		<Icon icon="paper-plane-tilt" size="1.2em" />
+		<Icon name="send" size="1.0em" />
 	</CallToAction>
 </aside>
 

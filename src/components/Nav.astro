@@ -13,7 +13,7 @@ const textLinks: { label: string; href: string }[] = [
 
 /** Test if a link is pointing to the current page. */
 const isCurrentPage = (href: string) => {
-	let pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, '/');
+	let pathname = Astro.url.pathname;
 	// console.log(href, pathname);
 	// console.log(Astro.url.pathname, import.meta.env.BASE_URL, pathname);
 	if (pathname.at(0) !== '/') pathname = '/' + pathname;
@@ -24,7 +24,7 @@ const isCurrentPage = (href: string) => {
 
 <nav>
 	<div class="menu-header">
-		<a href="/" class="site-title">
+		<a href=`${import.meta.env.BASE_URL}` class="site-title">
 			<!-- <Icon icon="heart" color="var(--accent-regular)" size="1.6em" gradient /> -->
 			Davide Sigillo
 		</a>
@@ -45,9 +45,7 @@ const isCurrentPage = (href: string) => {
 					<li>
 						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
 							{label}
-							{href}
 						</a>
-						{isCurrentPage(href)}
 					</li>
 				))
 			}
@@ -145,7 +143,7 @@ const isCurrentPage = (href: string) => {
 		position: relative;
 		display: flex;
 		border: 0;
-		border-radius: 999rem;
+		border-radius: 8px;
 		padding: 0.5rem;
 		font-size: 1.5rem;
 		color: var(--gray-300);
@@ -169,7 +167,7 @@ const isCurrentPage = (href: string) => {
 		inset: -1px;
 		content: '';
 		background: var(--gradient-stroke);
-		border-radius: 999rem;
+		border-radius: 8px;
 		z-index: -1;
 	}
 
@@ -266,7 +264,7 @@ const isCurrentPage = (href: string) => {
 			position: relative;
 			flex-direction: row;
 			font-size: var(--text-sm);
-			border-radius: 999rem;
+			border-radius: 8px;
 			border: 0;
 			padding: 0.5rem 0.5625rem;
 			background: radial-gradient(var(--gray-900), var(--gray-800) 150%);
@@ -278,13 +276,13 @@ const isCurrentPage = (href: string) => {
 			inset: -1px;
 			content: '';
 			background: var(--gradient-stroke);
-			border-radius: 999rem;
+			border-radius: 8px;
 			z-index: -1;
 		}
 
 		.link {
 			padding: 0.5rem 1rem;
-			border-radius: 999rem;
+			border-radius: 8px;
 			transition:
 				color var(--theme-transition),
 				background-color var(--theme-transition);
