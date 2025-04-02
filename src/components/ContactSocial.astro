@@ -1,0 +1,87 @@
+---
+import { Icon } from 'astro-icon/components'
+
+---
+
+<div class="socials">
+    <a href="" class="social">
+        <span class="sr-only">Spotify</span>
+        <Icon name="spotify" />
+    </a>
+    <a href="" class="social">
+        <span class="sr-only">YouTube</span>
+        <Icon name="youtube" />
+    </a>
+    <a href="" class="social">
+        <span class="sr-only">SoundCloud</span>
+        <Icon name="soundcloud" />
+    </a>
+    <a href="" class="social">
+        <span class="sr-only">Instagram</span>
+        <Icon name="instagram" />
+    </a>
+</div>
+
+<style>
+    .socials {
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2.5rem;
+	}
+
+	.social {
+		display: flex;
+		padding: var(--icon-padding);
+		text-decoration: none;
+		/* color: var(--accent-dark);
+		transition: color var(--theme-transition); */
+	}
+
+	.social:hover,
+	.social:focus {
+		/* color: var(--accent-text-over); */
+	}
+
+	@media (min-width: 50em) {
+		.link {
+			padding: 0.5rem 1rem;
+			border-radius: 8px;
+			transition:
+				color var(--theme-transition),
+				background-color var(--theme-transition);
+		}
+
+		.link:hover,
+		.link:focus {
+			color: var(--gray-100);
+			background-color: var(--accent-subtle-overlay);
+		}
+
+		.link[aria-current='page'] {
+			color: var(--accent-text-over);
+			background-color: var(--accent-regular);
+		}
+
+		.socials {
+			display: flex;
+            flex-direction: row;
+			justify-content: center;
+			gap: 2.5rem;
+		}
+	}
+
+	@media (min-width: 60em) {
+		.socials {
+			display: flex;
+            flex-direction: row;
+			justify-content: start;
+			gap: 2.5rem;
+		}
+	}
+	@media (forced-colors: active) {
+		.link[aria-current='page'] {
+			color: SelectedItem;
+		}
+	}
+</style>
