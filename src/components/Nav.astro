@@ -1,23 +1,14 @@
 ---
-import Icon from './Icon.astro';
+// import Icon from './Icon.astro';
+import { Icon } from 'astro-icon/components'
+
 import ThemeToggle from './ThemeToggle.astro';
-import type { iconPaths } from './IconPaths';
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
 	{ label: 'Home', href: '/' },
 	{ label: 'Work', href: '/work/' },
 	{ label: 'About', href: '/about/' },
-];
-
-/** Icon links to social media — edit these with links to your profiles! */
-const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter-logo' },
-	{ label: 'Twitch', href: 'https://twitch.tv/me', icon: 'twitch-logo' },
-	{ label: 'GitHub', href: 'https://github.com/me', icon: 'github-logo' },
-	{ label: 'CodePen', href: 'https://codepen.io/me', icon: 'codepen-logo' },
-	{ label: 'dribbble', href: 'https://dribbble.com/me', icon: 'dribbble-logo' },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@me/', icon: 'youtube-logo' },
 ];
 
 /** Test if a link is pointing to the current page. */
@@ -32,45 +23,19 @@ const isCurrentPage = (href: string) => {
 <nav>
 	<div class="menu-header">
 		<a href="/" class="site-title">
-			<Icon icon="heart" color="var(--accent-regular)" size="1.6em" gradient />
+			<!-- <Icon icon="heart" color="var(--accent-regular)" size="1.6em" gradient /> -->
 			Davide Sigillo
 		</a>
 		<menu-button>
 			<template>
 				<button class="menu-button" aria-expanded="false">
 					<span class="sr-only">Menu</span>
-					<Icon icon="list" />
+					<Icon name="menu" />
+
 				</button>
 			</template>
 		</menu-button>
 	</div>
-	<noscript>
-		<ul class="nav-items">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a aria-current={isCurrentPage(href) ? 'page' : null} class="link" href={href}>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</noscript>
-	<noscript>
-		<div class="menu-footer">
-			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
-			</div>
-		</div>
-	</noscript>
 	<div id="menu-content" hidden>
 		<ul class="nav-items">
 			{
@@ -85,14 +50,22 @@ const isCurrentPage = (href: string) => {
 		</ul>
 		<div class="menu-footer">
 			<div class="socials">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social">
-							<span class="sr-only">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
+					<a href="" class="social">
+						<span class="sr-only">Spotify</span>
+						<Icon name="spotify" />
+					</a>
+					<a href="" class="social">
+						<span class="sr-only">YouTube</span>
+						<Icon name="youtube" />
+					</a>
+					<a href="" class="social">
+						<span class="sr-only">SoundCloud</span>
+						<Icon name="soundcloud" />
+					</a>
+					<a href="" class="social">
+						<span class="sr-only">Instagram</span>
+						<Icon name="instagram" />
+					</a>
 			</div>
 
 			<div class="theme-toggle">
@@ -249,13 +222,13 @@ const isCurrentPage = (href: string) => {
 		display: flex;
 		padding: var(--icon-padding);
 		text-decoration: none;
-		color: var(--accent-dark);
-		transition: color var(--theme-transition);
+		/* color: var(--accent-dark);
+		transition: color var(--theme-transition); */
 	}
 
 	.social:hover,
 	.social:focus {
-		color: var(--accent-text-over);
+		/* color: var(--accent-text-over); */
 	}
 
 	.theme-toggle {
