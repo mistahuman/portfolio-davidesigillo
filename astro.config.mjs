@@ -7,6 +7,6 @@ import icon from 'astro-icon';
 export default defineConfig({
   site: "https://mistahuman.github.io/portfolio-davidesigillo/",
   base: "/portfolio-davidesigillo/",
-  output: "dist",
+  output: "static",
   integrations: [icon()]
 });
