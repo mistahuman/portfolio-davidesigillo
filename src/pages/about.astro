@@ -15,7 +15,7 @@ import Hero from '../components/Hero.astro';
 				<img
 					width="1553"
 					height="873"
-					src="./assets/portrait.jpg"
+					src=`${import.meta.env.BASE_URL}assets/portrait.jpg`
 					alt="Davide Sigillo at work with a colleague"
 				/>
 			</Hero>
@@ -62,7 +62,7 @@ import Hero from '../components/Hero.astro';
 
 	img {
 		margin-top: 1.5rem;
-		border-radius: 1.5rem;
+		border-radius: 8px;
 		box-shadow: var(--shadow-md);
 	}
 

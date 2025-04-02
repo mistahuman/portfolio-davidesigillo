@@ -46,7 +46,7 @@ const projects = (await getCollection('work'))
 					alt="Davide Sigillo smiling in a red plaid shirt and tortoise shell glasses"
 					width="480"
 					height="620"
-					src="./assets/portrait.jpg"
+					src=`${import.meta.env.BASE_URL}assets/portrait.jpg`
 				/>
 			</header>
 
@@ -127,7 +127,7 @@ const projects = (await getCollection('work'))
 		aspect-ratio: 5 / 4;
 		object-fit: cover;
 		object-position: top;
-		border-radius: 1.5rem;
+		border-radius: 8px;
 		box-shadow: var(--shadow-md);
 	}
 
@@ -147,7 +147,7 @@ const projects = (await getCollection('work'))
 
 		.hero img {
 			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
+			border-radius: 8px;
 			object-fit: cover;
 		}
 	}
