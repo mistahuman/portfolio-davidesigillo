@@ -8,7 +8,7 @@ import ContactSocial from '../components/ContactSocial.astro';
 // Component Imports
 import CallToAction from '../components/CallToAction.astro';
 import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
+import HeroHome from '../components/HeroHome.astro';
 // import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
 import PortfolioPreview from '../components/PortfolioPreview.astro';
@@ -32,7 +32,7 @@ const projects = (await getCollection('work'))
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
-				<Hero
+				<HeroHome
 					title="Davide Sigillo"
 					tagline="Di giorno lavoro come ingegnere gestionale, ma nel tempo libero mi immergo nel mondo della creatività digitale. "
 					align="start"
@@ -41,8 +41,7 @@ const projects = (await getCollection('work'))
 						<Pill><Icon name="palette" size="1.33em" /> Creative Technologist</Pill>
 						<Pill><Icon name="music" size="1.33em" /> Visual & Sound Designer</Pill>
 					</div>
-					<ContactSocial />
-				</Hero>
+				</HeroHome>
 
 				<img
 					alt="Davide Sigillo smiling in a red plaid shirt and tortoise shell glasses"
@@ -86,9 +85,6 @@ const projects = (await getCollection('work'))
 
 		</main>
 		<ContactCTA />
-		<section>
-			<ContactSocial />
-		</section>
 	</div>
 </BaseLayout>
 
@@ -104,8 +100,8 @@ const projects = (await getCollection('work'))
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		gap: 1rem;
-		max-width: 300px; /* Imposta la larghezza massima */
 	}
 
 	.hero img {
