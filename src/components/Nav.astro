@@ -18,8 +18,8 @@ const isCurrentPage = (href: string) => {
 	
 	if (pathname.at(0) !== '/') pathname = '/' + pathname;
 	// if (pathname.at(-1) !== '/') pathname += '/';
-	// console.log(href, pathname, pathname === href, (href !== '/' && pathname.startsWith(href)));
-	return pathname === href;
+	console.log(href, pathname, pathname === href, (href !== `${import.meta.env.BASE_URL}` && pathname.startsWith(href)));
+	return pathname === href || (href !== `${import.meta.env.BASE_URL}` && pathname.startsWith(href));
 };
 ---
 
