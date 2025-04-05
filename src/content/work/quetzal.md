@@ -10,7 +10,7 @@ tags:
   - Ableton
 ---
 
-Una graziosa stella interattiva che reagisce all’audio in ingresso. La stella fluttua nello spazio e parla in base all’input audio del microfono. La stella può sorridere, arrabbiarsi e dispiacersi tramite input da controlli MIDI o da tastiera.
-
-Il progetto nasce da uno spunto trovato online, ma l'ho personalizzato e adattato, esplorare nuove possibilità di interazione audiovisiva
+Un viaggio visivo nato da una mia traccia «Quetzal» musicale prodotta su Ableton Live.
+Attraverso l’uso di T3X2R (Max for Live Visualier – Ableton Live) ho sincronizzato impulsi e automazioni ai parametri visivi, dando vita a un video dinamico con immagini distorte che si trasformano seguendo il ritmo e le variazioni sonore.
+Il risultato è un’esperienza audiovisiva immersiva e frenetica in cui il suono guida forme e colori
 
