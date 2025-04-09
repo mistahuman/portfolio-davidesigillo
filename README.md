@@ -1,7 +1,7 @@
-# Personal Portfolio
+# Portfolio Davide Sigillo
 
 A clean and modern portfolio website built with [Astro](https://astro.build/), based on the official **Astro Portfolio Starter Template**.  
-This project was customized and adapted to better reflect the style and content of the person it represents.
+This project was customized and adapted to better reflect the style and content of the person it represents (my bro).
 
 ## 🚀 Live Demo
 
