@@ -1,21 +1,24 @@
-# Astro Starter Kit: Portfolio
+# Personal Portfolio
 
-```sh
-npm create astro@latest -- --template portfolio
-```
-## 🧞 Commands
+A clean and modern portfolio website built with [Astro](https://astro.build/), based on the official **Astro Portfolio Starter Template**.  
+This project was customized and adapted to better reflect the style and content of the person it represents.
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Live Demo
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+[View the website](https://mistahuman.github.io/portfolio-davidesigillo)
 
-## 👀 Want to learn more?
+## 🧰 Tech Stack
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- **Astro** – Static site builder
+- **Tailwind CSS** – Utility-first CSS framework (used in the template)
+- **Markdown / MDX** – For content structure
+
+## 🛠️ Getting Started
+
+To run the project locally:
+
+```bash
+git clone https://github.com/mistahuman/portfolio-davidesigillo.git
+cd portfolio-davidesigillo
+npm install
+npm run dev
