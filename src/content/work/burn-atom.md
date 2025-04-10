@@ -13,6 +13,6 @@ Un atomo stilizzato con tre orbite in movimento concentrico, il cui nucleo appun
 
 L’ampiezza del suono influisce sulla dimensione dell’atomo e sull’intensità degli effetti grafici, mentre lo sfondo si anima con un effetto di combustione che segue l’energia del segnale audio.
 
-Una curiosità: l’effetto bruciato è dato dall’elaborazione di un video dell’Arno in Piena.
+Una curiosità: l’effetto bruciato è dato dall’elaborazione di un video dell’Arno in piena.
 
 
